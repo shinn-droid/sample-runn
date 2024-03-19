@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    description: ユーザーID
+    type: string
+    maxLength: 100
+  name:
+    description: 氏名
+    type: string
+    maxLength: 100
+  mail_address:
+    description: メールアドレス
+    type: string
+    maxLength: 255

@@ -1,0 +1,18 @@
+#422:
+description: ""
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Unprocessable Entity.
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              fieldName:
+                type: array
+                example: [fieldName is required, fieldName is 20 characters or less]

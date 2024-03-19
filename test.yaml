@@ -1,0 +1,20 @@
+desc: "swagger"
+runners:
+  req:
+    endpoint: http://localhost:8080/
+    openapi3: "./swagger.yaml"
+    skipValidateRequest: false
+    skipValidateResponse: false
+steps:
+  getCompanies:
+    desc: "会社一覧を取得します"
+    req:
+      /branch_offices:
+        get:
+          headers:
+            Authorization: ""
+          body:
+            application/json: null
+    test: |
+      # ステータスコードが200であること
+      current.res.status == 200 

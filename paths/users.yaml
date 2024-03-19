@@ -1,0 +1,43 @@
+get:
+  summary: ユーザーの取得
+  description: ユーザーエンティティから、指定されたクエリパラメータに一致するレコードを返します。 パラメータが指定されていない場合は、すべてのレコードが返されます。
+  tags:
+    - users
+  operationId: getAllUsers
+  parameters:
+    - name: Authorization
+      in: header
+      schema:
+        type: string
+      description: 認証情報
+      required: true      
+  responses:
+    '200':
+      description: ユーザーエンティティを返却します。
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count:
+                type: integer
+                example: 1
+              current_time:
+                type: integer
+                example: 1650333580
+              users:
+                type: array
+                items:
+                  $ref: '../schemas/ResUsers.yaml'
+    '400':
+      $ref: "../responses/BadRequest.yaml"
+    '401':
+      $ref: "../responses/Unauthorized.yaml"
+    '404':
+      $ref: "../responses/NotFound.yaml"
+    '500':
+      $ref: "../responses/InternalServerError.yaml"
+    '503':
+      $ref: "../responses/ServiceUnavailable.yaml"
+  security:
+    - bearer: []
