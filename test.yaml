@@ -9,7 +9,7 @@ steps:
   getCompanies:
     desc: "会社一覧を取得します"
     req:
-      /branch_offices:
+      /cms_users:
         get:
           headers:
             Authorization: ""
